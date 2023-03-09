@@ -1,0 +1,19 @@
+{
+  "name": "sela",
+  "version": "1.0.0",
+  "description": "Software Engineering Laboratory Automation project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "slack",
+    "notion",
+    "github"
+  ],
+  "author": "H.Ani",
+  "license": "ISC",
+  "dependencies": {
+    "@notionhq/client": "^1.0.4"
+  }
+}
