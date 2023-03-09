@@ -1,6 +1,8 @@
-const { Client, APIErrorCode } = require("@notionhq/client")
+// This is a Notion API call to add new item in particular database.
 
-const notion = new Client({ auth: process.env.NOTION_KEY })
+const { Client } = require("@notionhq/client");
+
+const notion = new Client({ auth: process.env.NOTION_KEY });
 const databaseID = process.env.NOTION_DATABASE_ID
 
 function get_DateTime() {

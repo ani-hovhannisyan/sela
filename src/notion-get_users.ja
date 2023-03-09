@@ -1,0 +1,15 @@
+const { Client, APIErrorCode } = require("@notionhq/client")
+
+const notion = new Client({ auth: process.env.NOTION_KEY })
+const databaseID = process.env.NOTION_DATABASE_ID
+
+async function getUsers () {
+  const listUsersResponse = await notion.users.list({})
+  console.log("Users response is:", listUsersResponse)
+
+  const myPage = await notion.databases.query({
+    database_id: databaseID
+  })
+}
+
+getUsers()
