@@ -2,36 +2,31 @@
 
 const { Client } = require('@notionhq/client');
 
-const notion = new Client({ auth: process.env.NOTION_KEY });
+const notion = new Client({ auth: process.env.NOTION_API_KEY });
 const databaseID = process.env.NOTION_DATABASE_ID
 
 async function getDatabaseItem() {
+  console.log('1.>> Retrieving DB data:', databaseID);
   const response = await notion.databases.query({
-    database_id: databaseID,
-    filter: {
-      and: [
-        {
-          property: 'Content',
-          checkbox: {
-            equals: true,
-          },
-        },
-        {
-          property: 'Number',
-          number: {
-            greater_than_or_equal_to: 2,
-          },
-        },
-      ],
-    },
-    sorts: [
+    "database_id": databaseID,
+    "sorts": [
       {
-        property: 'Created Date',
-        direction: 'ascending',
+        "property": 'Date',
+        "direction": 'ascending',
       },
     ],
   });
-  console.log(response);
+  console.log('1.>> Retrieved DB data is:', databaseID, response);
+}
+
+
+async function getPage() {
+  pageId = '00000000000000000000000000000000'
+
+  console.log('2.>> Retrieveing Page:', pageId);
+  const response = await notion.pages.retrieve({ page_id: pageId });
+  console.log('2.>> Retrieveing Page data is:', response);
 }
 
 getDatabaseItem()
+//getPage()
