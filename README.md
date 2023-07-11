@@ -12,4 +12,5 @@ INSTALLATION
 DEPENDENCIES
 
 USAGE
-
+Replace configs from below file and run configuration environment variables:
+    $ source configs/selab_sela_configs.env
